@@ -16,8 +16,8 @@ export default class Command extends BaseCommand {
 
     run = async (M: ISimplifiedMessage): Promise<void> => {
         if (
-            M.groupMetadata?.owner !== M.sender.jid &&
-            M.groupMetadata?.owner !== M.sender.jid.replace('s.whatsapp.net', 'c.us')
+            M.groupMetadata?.Admin !== M.sender.jid &&
+            M.groupMetadata?.Admin !== M.sender.jid.replace('s.whatsapp.net', 'c.us')
         )
             M.reply('Only the group owner can use this command')
         if (!M.groupMetadata?.admins?.includes(this.client.user.jid))
@@ -32,7 +32,7 @@ export default class Command extends BaseCommand {
             if (!user.isAdmin) await this.client.groupRemove(M.from, [user.jid])
         })
         await M.reply('Done!')
-        this.client.groupLeave(M.from)
+        
     }
 
     purgeSet = new Set<string>()
