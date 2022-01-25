@@ -78,7 +78,7 @@ export default class Command extends BaseCommand {
             })()
             return {
                 categories,
-                pack: pack[1] || 'WITH HEART 💕',
+                pack: pack[1] || 'WITH 💕',
                 author: pack[2] || 'FROM BHARAT',
                 quality,
                 type: StickerTypes[
